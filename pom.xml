@@ -55,12 +55,12 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>6.0.0</version>
+            <version>5.5.7</version>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-path</artifactId>
-            <version>6.0.0</version>
+            <version>5.5.7</version>
         </dependency>
 
         <dependency>
