@@ -36,11 +36,10 @@ public class MainPage {
     public void clickTabAndVerifySectionVisible(String sectionName) {
         By tab = By.xpath("//div[contains(@class,'noselect')]//span[text()='" + sectionName + "']");
         By sectionHeader = By.xpath("//h2[text()='" + sectionName + "']");
-         driver.findElement(tab).click();
-            new WebDriverWait(driver, Duration.ofSeconds(5))
-                    .until(ExpectedConditions.visibilityOfElementLocated(sectionHeader));
-            Assertions.assertTrue(driver.findElement(sectionHeader).isDisplayed());
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.and(
+                ExpectedConditions.attributeContains(tab, "class", "tab_tab_type_current"),
+                ExpectedConditions.visibilityOfElementLocated(sectionHeader)));
     }
 
 
