@@ -1,0 +1,4 @@
+selenium\test\PageNavigationTest.class
+selenium\test\RegistrationTest.class
+selenium\test\MainPageVisibleFillingSectionTest.class
+selenium\test\SingInSingOutTest.class
