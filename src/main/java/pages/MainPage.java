@@ -32,15 +32,16 @@ public class MainPage {
                 .until(ExpectedConditions.visibilityOfElementLocated(createBurgerTitle));
     }
 
+
     @Step("Выбрать таб раздела и проверить видимость секции")
     public void clickTabAndVerifySectionVisible(String sectionName) {
-        By tab = By.xpath("//div[contains(@class,'noselect')]//span[text()='" + sectionName + "']");
+        By tabBy = By.xpath("//div[contains(@class,'noselect')]//span[text()='" + sectionName + "']/parent::div");
         By sectionHeader = By.xpath("//h2[text()='" + sectionName + "']");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        driver.findElement(tabBy).click();
         wait.until(ExpectedConditions.and(
-                ExpectedConditions.attributeContains(tab, "class", "tab_tab_type_current"),
-                ExpectedConditions.visibilityOfElementLocated(sectionHeader)));
-    }
+                ExpectedConditions.attributeContains(tabBy, "class", "tab_tab_type_current"),
+                ExpectedConditions.visibilityOfElementLocated(sectionHeader)));}
 
 
     @Step("Нажать кнопку «Войти в аккаунт»")
